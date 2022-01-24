@@ -69,7 +69,7 @@
        state: present
 
 
-   - name: Clone a github repository
+   - name: Clone thc-ipv6 github repository
      tags: repo
      git:
        repo: https://github.com/vanhauser-thc/thc-ipv6.git
@@ -91,3 +91,37 @@
        dest: /root/attack.sh
        owner: root
        mode: '755'
+
+
+   - name: install several essential packages for thc-hydra
+     tags: thc-hydra
+     yum: 
+       name: 
+         - dnf
+         - libssh-devel
+         - pcre-devel
+         - gtk2-devel
+         - mariadb-devel
+         - postgresql-devel
+         - libsvm-devel
+         - libgcrypt-develiptables
+         - desktop-file-utils
+       state: present
+   
+   - name: Clone "thc-hydra" github repository
+     tags: repo
+     git:
+       repo: https://github.com/vanhauser-thc/thc-hydra
+       dest: /root/hydra
+       clone: yes
+       update: yes
+
+   - name: Play around withing the repo 
+     tags: in-repo
+     shell: |
+       dnf --enablerepo=powertools install libidn-devel -y
+       ./configure
+       make
+       make install
+     args:
+       chdir: /root/hydra

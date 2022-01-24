@@ -94,7 +94,7 @@
 
 
    - name: install several essential packages for thc-hydra
-     tags: thc-hydra
+     tags: hydra
      yum: 
        name: 
          - dnf
@@ -109,7 +109,7 @@
        state: present
    
    - name: Clone "thc-hydra" github repository
-     tags: repo
+     tags: hydra
      git:
        repo: https://github.com/vanhauser-thc/thc-hydra
        dest: /root/hydra
@@ -117,7 +117,7 @@
        update: yes
 
    - name: Play around withing the repo 
-     tags: in-repo
+     tags: hydra
      shell: |
        dnf --enablerepo=powertools install libidn-devel -y
        ./configure

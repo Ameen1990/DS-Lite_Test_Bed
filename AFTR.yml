@@ -82,3 +82,17 @@
      shell: |
        cd 
        ./networking.sh
+
+   - name: Create ssh Brute-Force protection ip6tables rules
+     tags: mitigation
+     ansible.builtin.template:
+       src: /root/DS-Lite_Test_Bed/files/AFTR-SSH-Protection.txt
+       dest: /root/ssh-protection.sh
+       owner: root
+       mode: '755'
+
+   - name: Run ssh-protection.sh
+     tags: mitigation
+     shell: |
+       cd 
+       ./ssh-protection.sh

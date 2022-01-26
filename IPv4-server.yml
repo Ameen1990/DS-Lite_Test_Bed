@@ -29,7 +29,7 @@
          - iptables-services
        state: present
 
-   - name: install several packages after deleting iptables
+   - name: install several packages in casea of deleting iptables
      tags: iptables
      yum: 
        name: 
@@ -47,7 +47,7 @@
        state: present
 
 
-   - name: Create the folder structure to house the Snort configuration.
+   - name: Set the Timezone.
      tags: NTP
      shell: |
        timedatectl set-ntp true

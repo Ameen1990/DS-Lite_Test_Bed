@@ -24,6 +24,6 @@ iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 ip6tables -A INPUT -i ens34 -s 2001:db8:0:1::2 -m mac ! --mac-source 00:0c:29:67:14:14 -j DROP
 
 
-
 # Masqurading AFTR ens35 interface
 iptables -t nat -A POSTROUTING -o ens35 -j MASQUERADE
+

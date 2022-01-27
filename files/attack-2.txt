@@ -1,2 +1,3 @@
 #!/bin/bash
 
+hydra -s 22 -V -l root -P /root/DS-Lite_Test_Bed/files/pw-list.txt -t 10 -f 2001:db8:0:1::1 ssh

@@ -132,3 +132,25 @@
        dest: /root/attack-2.sh
        owner: root
        mode: '755'
+
+   - name: Clone "dns64perf" github repository
+     tags: dns64
+     git:
+       repo: https://github.com/bakaid/dns64perfpp.git
+       dest: /root/dns-64-perf
+       clone: yes
+       update: yes
+
+
+   - name: Play around within the repo 
+     tags: dns64
+     shell: |
+       yum install centos-release-scl -y
+       yum install llvm-toolset-7 -y
+       scl enable llvm-toolset-7 bash
+       make
+       make install
+     args:
+       chdir: /root/dns-64-perf
+
+

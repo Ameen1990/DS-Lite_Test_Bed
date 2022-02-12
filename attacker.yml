@@ -148,7 +148,15 @@
          - centos-release-scl
          - llvm-toolset-7
        state: present
-       
+
+# in case of erros while running the last module: -
+
+# make
+# make -std=c++1y -pedantic
+# make install
+# make install -std=c++1y -pedantic
+
+
 
    - name: Play around within the repo 
      tags: dns64

@@ -155,7 +155,7 @@
      shell: |
        scl enable llvm-toolset-7 bash
        make
-       sleep 5
+       sleep 5 # wait till make stuff is finished
        make install
      args:
        chdir: /root/dns-64-perf

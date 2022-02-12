@@ -141,12 +141,18 @@
        clone: yes
        update: yes
 
+   - name: install several essential packages for dns64
+     tags: dns64
+     yum: 
+       name: 
+         - centos-release-scl
+         - llvm-toolset-7
+       state: present
+       
 
    - name: Play around within the repo 
      tags: dns64
      shell: |
-       yum install centos-release-scl -y
-       yum install llvm-toolset-7 -y
        scl enable llvm-toolset-7 bash
        make
        make install

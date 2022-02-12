@@ -155,6 +155,7 @@
      shell: |
        scl enable llvm-toolset-7 bash
        make
+       sleep 5
        make install
      args:
        chdir: /root/dns-64-perf

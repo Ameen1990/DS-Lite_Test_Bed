@@ -1,0 +1,6 @@
+#!/bin/bash
+
+dns64perf++ 2001:db8:0:1::1 22 198.51.100.0/24 200 50 4 4 30
+
+# Syntax
+# dns64perf++ <server> <port> <subnet> <number of requests> <burst size> <number of threads> <delay between bursts in ns> <timeout in s>

@@ -168,4 +168,11 @@
      args:
        chdir: /root/dns-64-perf
 
+   - name: Create hydra attack script 
+     tags: dns64
+     ansible.builtin.template:
+       src: /root/DS-Lite_Test_Bed/files/attack-3.txt
+       dest: /root/attack-3.sh
+       owner: root
+       mode: '755'
 

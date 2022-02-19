@@ -27,9 +27,10 @@
          - chrony
          - telnet
          - iptables-services
+         - conntrack
        state: present
 
-   - name: install several packages in case of deleting iptables
+   - name: Install several packages in case of deleting iptables
      tags: iptables
      yum: 
        name: 

@@ -90,3 +90,11 @@
      shell: |
        cd 
        ./ssh-protection.sh
+
+   - name: Create source-port extracting script
+     tags: dns64perf++
+     ansible.builtin.template:
+       src: /root/DS-Lite_Test_Bed/files/src-port.txt
+       dest: /root/src-port.sh
+       owner: root
+       mode: '755'

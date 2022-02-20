@@ -95,6 +95,6 @@
      tags: dns64perf++
      ansible.builtin.template:
        src: /root/DS-Lite_Test_Bed/files/src-port.txt
-       dest: /root/src-port.sh
+       dest: /root/src-port
        owner: root
        mode: '755'

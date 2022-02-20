@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+tshark -i ens34 > /tmp/rs.txt &
+sleep 5
+killall -9 tshark
+cat /tmp/rs.txt | ./src-port > /tmp/sp.txt
+echo "Src-Port" | mail -s "Src-Port Number" -a /tmp/sp.txt ameen_ali38@yahoo.com

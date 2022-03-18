@@ -30,7 +30,7 @@
          - gcc
          - scl-utils
          - centos-release-scl
-         state: present
+       state: present
 
    - name: install several packages after deleting iptables
      tags: iptables

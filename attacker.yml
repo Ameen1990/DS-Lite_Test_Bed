@@ -28,7 +28,9 @@
          - telnet
          - iptables-services
          - gcc
-       state: present
+         - scl-utils
+         - centos-release-scl
+         state: present
 
    - name: install several packages after deleting iptables
      tags: iptables

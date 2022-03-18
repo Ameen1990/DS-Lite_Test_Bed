@@ -136,12 +136,10 @@
 
    - name: Clone "dns64perf" github repository
      tags: dns64
-     git:
-       repo: https://github.com/bakaid/dns64perfpp/tree/feature/multiport
-       dest: /root/dns-64-perf
-       clone: yes
-       update: yes
-
+     shell: git clone -b feature/multiport https://github.com/bakaid/dns64perfpp.git
+     args:
+       chdir: /root/
+    
    - name: install several essential packages for dns64
      tags: dns64
      yum: 
@@ -167,7 +165,7 @@
        sleep 5 # wait till make stuff is finished
        make install
      args:
-       chdir: /root/dns-64-perf
+       chdir: /root/dns64perfpp
 
    - name: Create dns64perf++ attacking script 
      tags: dns64

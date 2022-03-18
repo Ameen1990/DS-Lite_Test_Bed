@@ -163,6 +163,7 @@
      tags: dns64
      shell: |
        scl enable llvm-toolset-7 bash
+       yum install clang -y
        make
        sleep 5 # wait till make stuff is finished
        make install

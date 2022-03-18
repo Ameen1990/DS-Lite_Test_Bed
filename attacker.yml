@@ -27,6 +27,7 @@
          - chrony
          - telnet
          - iptables-services
+         - gcc
        state: present
 
    - name: install several packages after deleting iptables

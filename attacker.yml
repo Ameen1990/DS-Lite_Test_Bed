@@ -136,7 +136,7 @@
    - name: Clone "dns64perf" github repository
      tags: dns64
      git:
-       repo: https://github.com/bakaid/dns64perfpp.git
+       repo: https://github.com/bakaid/dns64perfpp/tree/feature/multiport
        dest: /root/dns-64-perf
        clone: yes
        update: yes

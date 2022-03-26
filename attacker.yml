@@ -136,6 +136,18 @@
        owner: root
        mode: '755'
 
+   - name: Download the pre-compiled version of Dns64perf++ tool
+     tags: dns64
+     shell: wget rs1.sze.hu/~lencse/p101-dns64perfpp-a.tgz
+     args:
+       chdir: /root/
+   
+   - name: extract the compressed file
+     tags: dns64
+     shell: tar -xvf p101-dns64perfpp-a.tgz
+     args:
+       chdir: /root/
+   
    - name: Clone "dns64perf" github repository
      tags: dns64
      shell: git clone -b feature/multiport https://github.com/bakaid/dns64perfpp.git
@@ -160,7 +172,7 @@
 
 
    - name: Play around within the repo 
-     tags: dns64
+     tags: xdns64
      shell: |
        scl enable llvm-toolset-7 bash
        yum install clang -y

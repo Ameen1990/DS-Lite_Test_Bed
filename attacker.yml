@@ -60,7 +60,7 @@
 
 
    - name: Install essential Packages to run "thc-ipv6" repo Toolkit
-     tags: thc-essentials
+     tags: thc
      yum: 
        name: 
          - libpcap-devel
@@ -71,7 +71,7 @@
 
 
    - name: Clone thc-ipv6 github repository
-     tags: repo
+     tags: thc
      git:
        repo: https://github.com/vanhauser-thc/thc-ipv6.git
        dest: /root/hacker-tool
@@ -80,13 +80,13 @@
 
 
    - name: Play around withing the repo 
-     tags: in-repo
+     tags: thc
      shell: make all && make install
      args:
        chdir: /root/hacker-tool
 
    - name: Create attack script 
-     tags: attack
+     tags: thc
      ansible.builtin.template:
        src: /root/DS-Lite_Test_Bed/files/attack.txt
        dest: /root/attack.sh
@@ -129,7 +129,7 @@
 
 
    - name: Create hydra attack script 
-     tags: attack-2
+     tags: hydra
      ansible.builtin.template:
        src: /root/DS-Lite_Test_Bed/files/attack-2.txt
        dest: /root/attack-2.sh
@@ -149,7 +149,7 @@
        chdir: /root/
    
    - name: Clone "dns64perf" github repository
-     tags: dns64
+     tags: xdns64
      shell: git clone -b feature/multiport https://github.com/bakaid/dns64perfpp.git
      args:
        chdir: /root/

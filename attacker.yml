@@ -190,3 +190,20 @@
        owner: root
        mode: '755'
 
+
+   - name: Solve an issue of "GLIBCXX_3.4.21 not found" part 1
+     tags: dns64
+     shell: |
+       wget https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_64.sh
+     args:
+       chdir: /root/
+
+   - name: Solve an issue of "GLIBCXX_3.4.21 not found" part 2
+     tags: dns64
+     shell: |
+       sh Anaconda3-2019.07-Linux-x86_64.sh
+       cp anaconda3/lib/libstdc++.so.6.0.26 /usr/lib64
+       rm /usr/lib64/libstdc++.so.6
+       ln -s /usr/lib64/libstdc++.so.6.0.26 /usr/lib64/libstdc++.so.6
+     args:
+       chdir: /root/

@@ -176,7 +176,7 @@
        sleep 5 # wait till make stuff is finished
        make install
      args:
-       chdir: /root/dns64perfpp
+       chdir: /root/dns64perfpp-a
 
    - name: Create dns64perf++ attacking script 
      tags: dns64

@@ -147,12 +147,8 @@
      shell: tar -xvf p101-dns64perfpp-a.tgz
      args:
        chdir: /root/
-   
-   - name: Clone "dns64perf" github repository
-     tags: xdns64
-     shell: git clone -b feature/multiport https://github.com/bakaid/dns64perfpp.git
-     args:
-       chdir: /root/
+
+
     
    - name: install several essential packages for dns64
      tags: dns64
@@ -172,7 +168,7 @@
 
 
    - name: Play around within the repo 
-     tags: xdns64
+     tags: dns64
      shell: |
        scl enable llvm-toolset-7 bash
        yum install clang -y

@@ -20,7 +20,7 @@ ip6tables -X
 # Allowing ssh traffic
 iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 
-# Dropping any traffic that coming from B4 address but not having B4 ens38 MAC address
+# Dropping any traffic that coming from B4 address but not having B4 ens39 MAC address
 ip6tables -A INPUT -i ens34 -s 2001:db8:0:1::2 -m mac ! --mac-source 00:0c:29:67:14:14 -j DROP
 
 

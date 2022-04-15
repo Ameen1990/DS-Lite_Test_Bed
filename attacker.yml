@@ -203,3 +203,16 @@
        ln -s /usr/lib64/libstdc++.so.6.0.26 /usr/lib64/libstdc++.so.6
      args:
        chdir: /root/
+
+
+#   - name: Solve an issue of "too many open files" part 1 insert line "/etc/security/limits.conf"
+# 
+##<domain>        <type>  <item>  <value>
+#root            hard    nofile  1000000
+#     tags: dns64
+ 
+
+   - name: Solve an issue of "too many open files" part 2
+     tags: dns64
+     shell: |
+       ulimit -n 65536 

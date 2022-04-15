@@ -12,3 +12,5 @@ echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
 
 ip route add 198.51.100.0/24 dev ipip6
 
+iptables -F
+iptables -X

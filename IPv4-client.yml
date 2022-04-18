@@ -75,3 +75,30 @@
      shell: |
        cd 
        ./networking.sh
+
+
+
+
+   - name: Solve an issue of "too many open files" part 1 insert line "/etc/security/limits.conf"
+     tags: files
+     lineinfile:
+       path: /etc/security/limits.conf
+       regexp: '^#<domain>        <type>  <item>  <value>'
+       line: '<domain>        <type>  <item>  <value> \n root         hard    nofile  1000000'
+
+
+   - name: Solve an issue of "too many open files" part 2
+     tags: files
+     shell: |
+       ulimit -n 65536 
+
+
+
+   - name: Create auto-script to automate dns64perf++ Attack
+     tags: script
+     ansible.builtin.template:
+       src: /root/DS-Lite_Test_Bed/files/auto-attack.txt
+       dest: /root/auto-attack.sh
+       owner: root
+       mode: '755'
+

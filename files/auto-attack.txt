@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Bare in mind the changed IP addresses.
+# Make sure that cleint-1 machine has access to all those accessed machines without password.
+# To do so, copy the public key of client-1 to all the required machines.
 
 # Go inside AFTR & run Tshark
 ssh -n -f root@192.168.172.219 "sh -c 'nohup /usr/sbin/tshark -i ens35 > /tmp/results.txt 2>&1 &'"

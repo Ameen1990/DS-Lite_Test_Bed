@@ -209,7 +209,7 @@
      lineinfile:
        path: /etc/security/limits.conf
        regexp: '^#<domain>        <type>  <item>  <value>'
-       line: '<domain>        <type>  <item>  <value> \n root         hard    nofile  1000000'
+       line: "#<domain>        <type>  <item>  <value> \nroot         hard    nofile  1000000"
 
 
    - name: Solve an issue of "too many open files" part 2

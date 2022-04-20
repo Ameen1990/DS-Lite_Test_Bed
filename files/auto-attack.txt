@@ -4,26 +4,27 @@
 # Make sure that cleint-1 machine has access to all those accessed machines without password.
 # To do so, copy the public key of client-1 to all the required machines.
 
+
 AFTR="198.51.100.1"
-client-2="10.0.0.3"
+client2="10.0.0.3"
 
 # Go inside AFTR & run Tshark
-ssh -n -f root@$AFTR "sh -c 'nohup /usr/sbin/tshark -i ens35 > /tmp/results.txt 2>&1 &'"
+ssh -n -f root@$AFTR "sh -c 'nohup /usr/sbin/tshark -i ens35 -w /tmp/results.pcap 2>&1 &'"
 
 
 sleep 3
 
 # Run attacker script on the current "client-1" machine.
-./attack-3.sh &
+/root/dns64perfpp-a/dns64perf++v4 198.51.100.2 53 0.0.0.0/5 60000 1 1 60000 400000 0.1 2>&1 &
 
 
 # Go inside Attacker-2 machine & run attack script
-ssh -n -f root@$client-2 "./attack-3.sh"
+ssh -n -f root@$client2 "/root/dns64perfpp-a/dns64perf++v4 198.51.100.2 53 0.0.0.0/5 60000 1 1 60000 400000 0.1 2>&1 &"
 
 
 # waite a bit
-sleep 200
+sleep 60
 
 
 # Go inside AFTR, Kill tshark
-ssh -T root@$AFTR "killall -9 tshark"
+ssh -T root@$AFTR " "killall -9 tshark"

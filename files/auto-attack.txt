@@ -4,8 +4,8 @@
 # Make sure that cleint-1 machine has access to all those accessed machines without password.
 # To do so, copy the public key of client-1 to all the required machines.
 
-AFTR=198.51.100.1
-client-2=10.0.0.3
+AFTR="198.51.100.1"
+client-2="10.0.0.3"
 
 # Go inside AFTR & run Tshark
 ssh -n -f root@$AFTR "sh -c 'nohup /usr/sbin/tshark -i ens35 > /tmp/results.txt 2>&1 &'"

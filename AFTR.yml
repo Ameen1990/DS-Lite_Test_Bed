@@ -99,7 +99,7 @@
        owner: root
        mode: '755'
 
-   - name: Set netfilter parameters: hashize and nf_conntrack_max
+   - name: Set netfilter parameters such as hashize and nf_conntrack_max
      tags: netfilter
      shell: |
        echo "16384" > /sys/module/nf_conntrack/parameters/hashsize 

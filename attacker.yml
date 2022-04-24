@@ -214,8 +214,7 @@
 
    - name: Solve an issue of "too many open files" part 2
      tags: files
-     shell: |
-       ulimit -n 65536 
+     shell: ulimit -n 65536 
 
 
 

@@ -211,7 +211,14 @@
        regexp: '^#<domain>        <type>  <item>  <value>'
        line: "#<domain>        <type>  <item>  <value> \nroot         hard    nofile  1000000"
 
-
+   - name: Add or modify nofile hard limit for the root user
+     tags: files
+     pam_limits:
+       domain: root
+       limit_type: hard
+       limit_item: nofile
+       value: 64000
+ 
    - name: Solve an issue of "too many open files" part 2
      tags: files
      shell: ulimit -n 65536 

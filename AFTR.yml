@@ -28,6 +28,7 @@
          - telnet
          - iptables-services
          - conntrack
+         - gcc
        state: present
 
    - name: Install several packages in case of deleting iptables

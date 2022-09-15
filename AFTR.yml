@@ -29,6 +29,7 @@
          - iptables-services
          - conntrack
          - gcc
+         - bridge-utils
        state: present
 
    - name: Install several packages in case of deleting iptables

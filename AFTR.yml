@@ -30,6 +30,7 @@
          - conntrack
          - gcc
          - bridge-utils
+         - hping3
        state: present
 
    - name: Install several packages in case of deleting iptables

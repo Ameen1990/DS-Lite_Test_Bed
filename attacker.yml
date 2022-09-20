@@ -30,6 +30,7 @@
          - gcc
          - scl-utils
          - centos-release-scl
+         - hping3
        state: present
 
    - name: install several packages after deleting iptables
